@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { LuMenu } from "react-icons/lu";
-import { RiCloseLine } from "react-icons/ri";
+import Menu from "@/components/menu";
+
 import {
   Box,
   Flex,
@@ -11,11 +11,10 @@ import {
   // Text,
   useDisclosure,
   useBreakpointValue,
-  IconButton,
 } from "@chakra-ui/react";
 
 const Header = () => {
-  const { open, onOpen, onClose } = useDisclosure();
+  // const { open, onOpen, onClose } = useDisclosure();
 
   // Determine visibility based on screen size
   const isLargeScreen = useBreakpointValue({
@@ -103,15 +102,7 @@ const Header = () => {
               Book a Demo
             </Button>
           ) : null}
-          {!isLargeScreen ? (
-            <IconButton
-              aria-label="Open Menu"
-              variant="outline"
-              onClick={open ? onClose : onOpen}
-            >
-              {open ? <RiCloseLine /> : <LuMenu />}
-            </IconButton>
-          ) : null}
+          {!isLargeScreen ? <Menu /> : null}
         </Flex>
       </Flex>
     </Box>
